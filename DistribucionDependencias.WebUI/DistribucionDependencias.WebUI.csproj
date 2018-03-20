@@ -113,6 +113,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DistribucionDependencias.Domain\DistribucionDependencias.Domain.csproj">
-      <Project>{94240215-8309-47e9-9daf-bad733c35faa}</Project>
+      <Project>{e370d44d-e100-4807-8d76-fb7a5bd9bc13}</Project>
       <Name>DistribucionDependencias.Domain</Name>
     </ProjectReference>
   </ItemGroup>
