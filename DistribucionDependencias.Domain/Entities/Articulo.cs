@@ -12,6 +12,13 @@ namespace DistribucionDependencias.Domain.Entities
         public string Nombre { get; set; }
         public string NombreCorto { get; set; }
         public decimal Precio { get; set; }
-        public Categoria categoria { get; set; }
+        public Categoria Categoria { get; set; }
+    }
+
+    public class Categoria
+    {
+        public int CategoriaID { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     }
 }
