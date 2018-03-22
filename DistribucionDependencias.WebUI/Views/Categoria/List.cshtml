@@ -7,9 +7,8 @@
 
 @foreach(var c in Model)
 {
-    <div>
-        <h3>@c.Nombre</h3>
-        @c.Descripcion
-        <h4>@c.CategoriaID</h4>
-    </div>
+<div>
+    <h3>@c.CategoriaID  @c.Nombre</h3>
+    @c.Descripcion
+</div>
 }

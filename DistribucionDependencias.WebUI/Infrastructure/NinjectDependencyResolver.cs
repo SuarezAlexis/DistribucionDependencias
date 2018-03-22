@@ -42,8 +42,9 @@ namespace DistribucionDependencias.WebUI.Infrastructure
 
             Mock<ICategoriaRepository> categoriaRepositoryMock = new Mock<ICategoriaRepository>();
             categoriaRepositoryMock.Setup(m => m.Categorias).Returns(new List<Categoria> {
-                new Categoria { CategoriaID = 0, Nombre = "Categoria 0", Descripcion = "Blablabla categoria 0" },
-                new Categoria { CategoriaID = 1, Nombre = "Categoria 1", Descripcion = "Blablabla categoria 1" }
+                new Categoria { CategoriaID = 0, Nombre = "Abarrotes", Descripcion = "Artículos de abarrotes" },
+                new Categoria { CategoriaID = 1, Nombre = "Papelería", Descripcion = "Artículos de papelería" },
+                new Categoria { CategoriaID = 2, Nombre = "Farmacia", Descripcion = "Artículos de farmacia" }
             });
             kernel.Bind<ICategoriaRepository>().ToConstant(categoriaRepositoryMock.Object);
         }
