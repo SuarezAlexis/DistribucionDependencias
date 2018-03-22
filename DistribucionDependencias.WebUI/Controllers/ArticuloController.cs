@@ -8,18 +8,33 @@ using DistribucionDependencias.Domain.Entities;
 
 namespace DistribucionDependencias.WebUI.Controllers
 {
-    public class ArticuloController : Controller
+    public class CategoriaController : Controller
     {
-        private IArticuloRepository repository;
+        private ICategoriaRepository repo;
 
-        public ArticuloController(IArticuloRepository articuloRepository)
+        public CategoriaController(ICategoriaRepository categoriaRepository)
         {
-            this.repository = articuloRepository;
+            this.repo = categoriaRepository;
         }
 
         public ViewResult List()
         {
-            return View(repository.Articulos);
+            return View(repo.Categorias);
+        }
+    }
+
+    public class ArticuloController : Controller
+    {
+        private IArticuloRepository repo;
+
+        public ArticuloController(IArticuloRepository articuloRepository)
+        {
+            this.repo = articuloRepository;
+        }
+
+        public ViewResult List()
+        {
+            return View(repo.Articulos);
         }
     }
 }
