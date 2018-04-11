@@ -14,9 +14,35 @@ namespace DistribucionDependencias.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: null,
+                url: "",
+                defaults: new { Controller = "Producto", action = "List", categoria = (string)null, page = 1 }
+            );
+
+            routes.MapRoute(
+                name: null,
+                url: "Pag{page}",
+                defaults: new { Controller = "Producto", action = "List", categoria = (string)null,  },
+                constraints: new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
+                name: null,
+                url: "{categoria}",
+                defaults: new { Controller = "Producto", action = "List", page = 1 }
+            );
+
+            routes.MapRoute(
+                name: null,
+                url: "{categoria}/Pag{page}",
+                defaults: new { Controller = "Producto", action = "List" },
+                constraints: new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Categoria", action = "List", id = UrlParameter.Optional }
+                defaults: new { controller = "Producto", action = "List", id = UrlParameter.Optional }
             );
         }
     }

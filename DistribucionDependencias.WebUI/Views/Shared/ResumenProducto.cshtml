@@ -1,0 +1,32 @@
+﻿@using DistribucionDependencias.Domain.Entities
+@model Producto
+
+@{ 
+    List<SelectListItem> listas = new List<SelectListItem>();
+    foreach(Lista l in (IEnumerable<Lista>)ViewBag.Listas)
+    {
+        listas.Add(new SelectListItem { Value = l.ListaID.ToString(), Text = l.Nombre });
+    }
+}
+
+<div class="well">
+    <h4>
+        <strong>@Model.Nombre</strong>
+        <span class="pull-right label label-primary">@Model.Precio.ToString("c")</span>
+    </h4>
+
+    @using (Html.BeginForm("Agregar", "Lista"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.ProductoID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success addToList" value="Agregar a lista" disabled/>
+            @Html.DropDownListTextBox("Lista","Crear nueva lista", listas, null)
+        </div>
+    }
+
+    @Html.RouteLink(Model.Categoria.Nombre, new { controller = "Producto", action = "List", categoria = Model.Categoria.Nombre, page = 1 }, new { @class = "pull-left label label-primary" })
+    <span>@Model.ProductoID</span>
+    <span>@Model.NombreCorto</span>
+
+</div>

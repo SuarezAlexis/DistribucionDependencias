@@ -1,0 +1,25 @@
+﻿@model DistribucionDependencias.WebUI.Models.ProductoListView
+
+@{
+    ViewBag.Title = "Productos";
+    ViewBag.Listas = Model.Listas;
+}
+
+@section Scripts {
+    <script src="~/Scripts/app/AddToListButtonEnabler.js"></script>
+}
+
+<div id="categories" class="col-xs-2">
+    @Html.Action("CatMenu", "Nav")
+</div>
+<div class="col-xs-8">
+    <h2>Productos</h2>
+    @foreach (var p in Model.Productos)
+    {
+        @Html.Partial("ResumenProducto", p)
+    }
+
+    <div class="btn-group pull-right">
+        @Html.PageButtons(Model.Paginacion, x => Url.Action("List", new { page = x, categoria = Model.CategoriaActiva }))
+    </div>
+</div>

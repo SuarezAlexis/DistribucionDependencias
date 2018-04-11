@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DistribucionDependencias.Domain.Entities
 {
-    public class Articulo
+    public class Producto
     {
-        public string ArticuloID { get; set; }
+        public string ProductoID { get; set; }
         public string Nombre { get; set; }
         public string NombreCorto { get; set; }
         public decimal Precio { get; set; }

@@ -3,11 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    @RenderSection("Scripts", false)
 </head>
 <body>
     <div>
-        @RenderBody()
+        <div class="navbar navbar-inverse" role="navigation">
+            @Html.RouteLink("Distribucion a Dependencias","default", new { }, new { @class = "navbar-brand"})
+            <a class="navbar-brand" href="http://www.dgsa.unam.mx/">DGSA</a>
+            <a class="navbar-brand" href="https://www.unam.mx/">UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO</a>
+        </div>
+        <div class="row panel">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>

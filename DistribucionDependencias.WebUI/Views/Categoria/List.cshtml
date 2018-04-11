@@ -5,10 +5,13 @@
     ViewBag.Title = "Categorías";
 }
 
+<h2>Categorías</h2>
 @foreach(var c in Model)
 {
-<div>
-    <h3>@c.CategoriaID  @c.Nombre</h3>
-    @c.Descripcion
-</div>
+    <div class="well">
+        <h4>
+            @c.CategoriaID  <strong>@c.Nombre</strong>
+        </h4>
+        <span>@c.Descripcion</span>
+    </div>
 }
